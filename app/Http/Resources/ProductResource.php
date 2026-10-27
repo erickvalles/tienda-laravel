@@ -23,11 +23,13 @@ class ProductResource extends JsonResource
             'name' => $this->name,
             'slug' => $this->slug,
             'sku' => $this->sku,
+            'category_id' => $this->category_id,
             'description' => $this->description,
             'price' => (float) $this->price,
             'stock' => $this->stock,
             'image_url' => $this->image_url,
             'is_active' => $this->is_active,
+            'category' => CategoryResource::make($this->whenLoaded('category')),
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];

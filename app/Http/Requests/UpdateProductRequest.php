@@ -31,6 +31,7 @@ class UpdateProductRequest extends FormRequest
             'name' => ['sometimes', 'required', 'string', 'max:255'],
             'slug' => ['sometimes', 'required', 'string', 'max:255', 'alpha_dash', Rule::unique('products', 'slug')->ignore($product->id)],
             'sku' => ['sometimes', 'required', 'string', 'max:255', Rule::unique('products', 'sku')->ignore($product->id)],
+            'category_id' => ['sometimes', 'nullable', 'integer', Rule::exists('categories', 'id')],
             'description' => ['sometimes', 'nullable', 'string', 'max:5000'],
             'price' => ['sometimes', 'required', 'numeric', 'min:0'],
             'stock' => ['sometimes', 'required', 'integer', 'min:0'],
