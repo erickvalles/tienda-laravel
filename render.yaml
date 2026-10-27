@@ -8,7 +8,6 @@ services:
     plan: free
     healthCheckPath: /up
     autoDeploy: true
-    preDeployCommand: php artisan migrate --force
     envVars:
       - key: APP_ENV
         value: production
