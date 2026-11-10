@@ -20,8 +20,9 @@ services:
         sync: false
       - key: DB_CONNECTION
         value: pgsql
-      # DATABASE_URL is linked automatically from the Postgres instance below
-      - key: DATABASE_URL
+      # Laravel reads the connection URL from DB_URL (not DATABASE_URL).
+      # It is linked from the Postgres instance below.
+      - key: DB_URL
         fromDatabase:
           name: tienda-db
           property: connectionString
